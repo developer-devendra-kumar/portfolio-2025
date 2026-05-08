@@ -1,0 +1,276 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-05-08",
+  "data": {
+    "seo": {
+      "title": "Devendra Kumar - Full-Stack Engineer",
+      "description": "I help product teams design and deliver performant web applications using React, Angular, Node.js, and cloud-native delivery practices.",
+      "canonicalUrl": "https://example.com",
+      "ogImage": "https://example.com/og-image.jpg",
+      "twitterCard": "summary_large_image"
+    },
+    "navigation": [
+      { "label": "Home", "sectionId": "home" },
+      { "label": "About", "sectionId": "about" },
+      { "label": "Experience", "sectionId": "experience" },
+      { "label": "Services", "sectionId": "services" },
+      { "label": "Case Studies", "sectionId": "case-studies" },
+      { "label": "Contact", "sectionId": "contact" }
+    ],
+    "hero": {
+      "sectionId": "home",
+      "greeting": "Hello, my name is",
+      "name": "Devendra Kumar",
+      "role": "Software Engineer | Full-Stack Developer",
+      "summary": [
+        "I help teams ship scalable, maintainable web products in finance, fitness, and event-management domains.",
+        "My focus is high-performance UI engineering, reliable backend integrations, and fast delivery cycles."
+      ],
+      "metrics": [
+        { "label": "Experience", "value": "7+ Years" },
+        { "label": "Delivered Projects", "value": "25+" },
+        { "label": "Domains", "value": "Finance, Fitness, Events" }
+      ],
+      "ctas": [
+        { "label": "View Case Studies", "href": "#case-studies", "variant": "primary" },
+        { "label": "Book a Call", "href": "#contact", "variant": "secondary" }
+      ],
+      "scrollHint": "Scroll down to know more"
+    },
+    "about": {
+      "sectionId": "about",
+      "title": "About Me",
+      "paragraphs": [
+        "I started web development in 2016 and have since built production systems across regulated and high-volume environments.",
+        "I work end-to-end from interface architecture to API integration, and I lead teams to ship predictable releases with strong code quality."
+      ],
+      "skills": [
+        { "title": "Frontend", "description": "React, Angular, Tailwind, animation systems" },
+        { "title": "Backend", "description": "Node.js, Express, REST APIs, Socket.io" },
+        { "title": "Cloud", "description": "AWS, CI/CD pipelines, release automation" },
+        { "title": "Leadership", "description": "Mentoring, Agile delivery, solution ownership" }
+      ]
+    },
+    "journey": {
+      "sectionId": "journey",
+      "title": "My Journey",
+      "svgPath": "M0 0C171.429 266.667 628.571 266.667 800 600",
+      "milestones": [
+        {
+          "year": "2016",
+          "info": "Started with HTML, CSS, JavaScript, Linux, Java, Servlet, and JSP.",
+          "pathPosition": 100
+        },
+        {
+          "year": "2018",
+          "info": "Joined GSS Pvt. Ltd.; built enterprise modules with Java, Spring, Angular, and Node.js.",
+          "pathPosition": 300
+        },
+        {
+          "year": "2021",
+          "info": "Joined OakNorth Global Pvt. Ltd.; delivered full-stack features with React, Node.js, APIs, and SQL.",
+          "pathPosition": 500
+        },
+        {
+          "year": "2023",
+          "info": "Joined HDOR Events Pvt. Ltd. and progressed into team leadership on multi-platform products.",
+          "pathPosition": 700
+        }
+      ]
+    },
+    "experience": {
+      "sectionId": "experience",
+      "title": "Experience",
+      "items": [
+        {
+          "role": "Team Lead / Full-Stack Engineer",
+          "company": "HDOR Events Pvt. Ltd.",
+          "period": "2023 - Present",
+          "highlights": [
+            "Led delivery of event platform modules with frontend and backend ownership.",
+            "Mentored developers and improved release confidence through better engineering practices."
+          ],
+          "stack": ["React", "Angular", "Node.js", "Express", "MySQL", "REST APIs"]
+        },
+        {
+          "role": "Software Engineer",
+          "company": "OakNorth Global Pvt. Ltd.",
+          "period": "2021 - 2023",
+          "highlights": [
+            "Built production workflows in fintech systems with strong reliability requirements.",
+            "Delivered scalable UI and API integrations for core banking-related processes."
+          ],
+          "stack": ["React", "Node.js", "Express", "MySQL", "Angular", "MUI"]
+        },
+        {
+          "role": "Trainee to Software Engineer",
+          "company": "GSS Pvt. Ltd.",
+          "period": "2018 - 2021",
+          "highlights": [
+            "Developed modules using Java ecosystem and modern frontend frameworks.",
+            "Gained cross-functional experience in enterprise application delivery."
+          ],
+          "stack": ["Java", "Spring", "Hibernate", "Angular", "Node.js", "Bootstrap"]
+        }
+      ]
+    },
+    "services": {
+      "sectionId": "services",
+      "title": "Services",
+      "items": [
+        {
+          "title": "Frontend Engineering",
+          "description": "Build fast, maintainable interfaces aligned with product and business goals.",
+          "outcomes": ["Improved UX performance", "Reusable component architecture", "Scalable frontend codebase"]
+        },
+        {
+          "title": "Full-Stack Delivery",
+          "description": "Deliver complete features from UI to API and production deployment.",
+          "outcomes": ["Faster feature release", "Reliable integrations", "Lower handoff friction"]
+        },
+        {
+          "title": "Performance Optimization",
+          "description": "Identify bottlenecks and improve load times, runtime behavior, and stability.",
+          "outcomes": ["Reduced page load time", "Better core web vitals", "Stronger production resilience"]
+        }
+      ]
+    },
+    "caseStudies": {
+      "sectionId": "case-studies",
+      "title": "Case Studies",
+      "items": [
+        {
+          "title": "Fintech Workflow Platform",
+          "client": "Confidential Banking Client",
+          "domain": "Finance",
+          "problem": "Legacy flows were slow to evolve and difficult to maintain.",
+          "approach": "Reworked UI architecture and modularized API-driven flows for faster releases.",
+          "result": "Improved engineering velocity and reduced regression risk in critical workflows.",
+          "stack": ["React", "Node.js", "Express", "MySQL", "REST"]
+        },
+        {
+          "title": "Event Operations Dashboard",
+          "client": "HDOR Events",
+          "domain": "Event Management",
+          "problem": "Operational teams needed faster visibility and easier control over event workflows.",
+          "approach": "Built integrated dashboards with real-time updates and streamlined task flows.",
+          "result": "Improved operational responsiveness and delivery confidence across teams.",
+          "stack": ["React", "Angular", "Node.js", "Socket.io", "MySQL"]
+        }
+      ]
+    },
+    "testimonials": {
+      "sectionId": "testimonials",
+      "title": "Client Testimonials",
+      "items": [
+        {
+          "quote": "Devendra consistently delivered complex features with clarity and ownership.",
+          "author": "Engineering Manager",
+          "role": "Product Engineering",
+          "company": "Fintech Organization"
+        },
+        {
+          "quote": "He improved team output while maintaining high quality standards under pressure.",
+          "author": "Delivery Lead",
+          "role": "Program Delivery",
+          "company": "Events Platform"
+        }
+      ]
+    },
+    "process": {
+      "sectionId": "process",
+      "title": "Work Process",
+      "steps": [
+        { "title": "Discovery", "description": "Understand goals, constraints, and success metrics." },
+        { "title": "Plan", "description": "Define solution architecture, milestones, and delivery plan." },
+        { "title": "Build", "description": "Ship iteratively with transparent progress and quality checks." },
+        { "title": "Handover", "description": "Stabilize release and provide documentation and support." }
+      ]
+    },
+    "certifications": {
+      "sectionId": "certifications",
+      "title": "Certifications",
+      "items": [
+        {
+          "title": "JavaScript Certification",
+          "issuer": "Sololearn",
+          "year": "2024",
+          "credentialUrl": "#"
+        },
+        {
+          "title": "SQL Certification",
+          "issuer": "Sololearn",
+          "year": "2024",
+          "credentialUrl": "#"
+        },
+        {
+          "title": "HTML Certification",
+          "issuer": "Sololearn",
+          "year": "2023",
+          "credentialUrl": "#"
+        }
+      ]
+    },
+    "training": {
+      "sectionId": "training",
+      "title": "Training",
+      "items": [
+        {
+          "title": "Core Java and Advanced Java",
+          "provider": "Sunrise Institute",
+          "focus": "Backend fundamentals and enterprise programming concepts."
+        },
+        {
+          "title": "Android and Web Development",
+          "provider": "Netcamp",
+          "focus": "Cross-platform and web delivery skills."
+        }
+      ]
+    },
+    "contact": {
+      "sectionId": "contact",
+      "title": "Contact",
+      "headline": "Let's build something reliable and scalable.",
+      "intro": "If you are looking for a frontend-focused full-stack engineer for product delivery, architecture, or team acceleration, let's connect.",
+      "email": "devendra@example.com",
+      "location": "India",
+      "availability": "Open to contract and full-time opportunities.",
+      "responseTime": "Typically responds within 24 hours.",
+      "primaryCta": {
+        "label": "Email Me",
+        "href": "mailto:devendra@example.com"
+      },
+      "secondaryCta": {
+        "label": "View LinkedIn",
+        "href": "https://www.linkedin.com/"
+      }
+    },
+    "socialLinks": {
+      "sectionId": "social-links",
+      "title": "Social Links",
+      "links": [
+        { "label": "GitHub", "href": "https://github.com/" },
+        { "label": "LinkedIn", "href": "https://www.linkedin.com/" },
+        { "label": "LeetCode", "href": "https://leetcode.com/" }
+      ]
+    },
+    "faq": {
+      "sectionId": "faq",
+      "title": "FAQ",
+      "items": [
+        {
+          "question": "What engagement models do you support?",
+          "answer": "I support contract-based delivery, long-term product engineering, and team extension models."
+        },
+        {
+          "question": "Do you work across frontend and backend?",
+          "answer": "Yes. I handle frontend architecture, API integration, and backend feature delivery with Node.js ecosystems."
+        }
+      ]
+    },
+    "featureFlags": {
+      "showTestimonials": true,
+      "showFaq": true
+    }
+  }
+}

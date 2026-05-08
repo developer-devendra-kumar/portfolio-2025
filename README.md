@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+###Light Theme
 
-## Getting Started
+Background: #F9FAFB (soft gray-white)
 
-First, run the development server:
+Primary: #2563EB (modern blue)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Accent: #F59E0B (warm amber for highlights)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Text: #111827 (deep gray-black)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Secondary Text: #6B7280 (medium gray)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Card/Section Background: #FFFFFF with subtle shadow
 
-## Learn More
+###Dark Theme
 
-To learn more about Next.js, take a look at the following resources:
+Background: #0F172A (deep navy charcoal)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Primary: #3B82F6 (bright modern blue)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Accent: #FBBF24 (vibrant amber for contrast)
 
-## Deploy on Vercel
+Text: #F9FAFB (near white)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Secondary Text: #9CA3AF (muted gray)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Card/Section Background: #1E293B (slate gray) with subtle glow
