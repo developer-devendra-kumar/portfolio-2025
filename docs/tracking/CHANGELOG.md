@@ -272,3 +272,173 @@ Use this file to log every meaningful code/content update.
   - [ ] Manual check (desktop + mobile animation quality)
 - Notes/Risks:
   - Motion density is intentionally higher; if needed, durations/staggers can be tuned per section after visual review.
+
+## 2026-05-09 - Section flags + projects listing flow
+- Goal:
+  - Make all homepage sections toggleable via config flags and add a project showcase with dedicated full listing page.
+- Files changed:
+  - `src/types/content.ts`
+  - `src/content/validateSiteContent.ts`
+  - `scripts/validate-site-content.mjs`
+  - `src/content/site-content.json`
+  - `src/content/site-content.example.json`
+  - `src/components/Header.tsx`
+  - `src/components/Projects.tsx`
+  - `src/app/page.tsx`
+  - `src/app/projects/page.tsx`
+  - `docs/tracking/CHANGELOG.md`
+- What changed:
+  - Expanded `featureFlags` to control visibility for each section (`hero`, `about`, `journey`, `experience`, `services`, `case studies`, `projects`, `process`, `testimonials`, `certifications`, `training`, `social links`, `contact`, `faq`).
+  - Added dynamic `projects` content model with validation, including minimum 3 project entries and configurable preview/show-all behavior.
+  - Added homepage projects preview cards with inquiry CTA and `Show All Projects` navigation.
+  - Added `/projects` page rendering full project list cards and CTA links for deeper inquiry.
+  - Updated header navigation to support optional explicit `href`, enabling cross-page navigation behavior.
+- Validation:
+  - [x] `npm run validate:content`
+  - [x] `npm run lint`
+  - [x] `npm run build`
+  - [ ] Manual UX QA for project images and CTA flows
+- Notes/Risks:
+  - Remote content sources must include the new `projects` section and expanded `featureFlags` keys to pass validation.
+
+## 2026-05-09 - Performance-first homepage and links hub
+- Goal:
+  - Reduce initial load and improve first impression/SEO by introducing a minimal landing page and a dedicated links directory.
+- Files changed:
+  - `src/app/page.tsx`
+  - `src/app/showcase/page.tsx`
+  - `src/app/links/page.tsx`
+  - `src/app/projects/page.tsx`
+  - `src/components/Projects.tsx`
+  - `src/components/Header.tsx`
+  - `src/content/sectionVisibility.ts`
+  - `src/app/globals.css`
+  - `src/content/site-content.json`
+  - `src/content/site-content.example.json`
+  - `docs/tracking/CHANGELOG.md`
+- What changed:
+  - Moved the full, detailed portfolio experience from `/` to `/showcase`.
+  - Rebuilt `/` as a minimal, high-impact landing page with CSS-only animations and clear CTAs to deeper pages.
+  - Added `/links` as a centralized all-links hub for showcase sections, projects, profiles, and contact actions.
+  - Updated projects/contact routing defaults to point to `/showcase#contact` where relevant.
+  - Added a shared section-visibility/navigation utility and reused it across routes.
+  - Added animated visual system for landing/links pages using lightweight CSS keyframes (no extra runtime JS).
+- Validation:
+  - [x] `npm run validate:content`
+  - [x] `npm run lint`
+  - [x] `npm run build`
+  - [ ] Manual UX pass across `/`, `/links`, `/showcase`, `/projects`
+- Notes/Risks:
+  - Canonical production URL values are still placeholders in content and should be replaced before release.
+
+## 2026-05-09 - Persistent header + dedicated section pages with prefetch
+- Goal:
+  - Keep a single global header on every page, make homepage impactful, and route each nav item to dedicated pages that feel snapping fast.
+- Files changed:
+  - `src/app/layout.tsx`
+  - `src/components/SiteHeader.tsx`
+  - `src/components/Header.tsx`
+  - `src/content/sectionVisibility.ts`
+  - `src/app/page.tsx`
+  - `src/app/showcase/page.tsx`
+  - `src/app/links/page.tsx`
+  - `src/app/projects/page.tsx`
+  - `src/components/SectionPageShell.tsx`
+  - `src/app/about/page.tsx`
+  - `src/app/experience/page.tsx`
+  - `src/app/services/page.tsx`
+  - `src/app/case-studies/page.tsx`
+  - `src/app/contact/page.tsx`
+  - `src/content/seo.ts`
+  - `src/content/site-content.json`
+  - `src/content/site-content.example.json`
+  - `docs/tracking/CHANGELOG.md`
+- What changed:
+  - Added a global server-driven header in root layout so all pages always include header navigation.
+  - Updated header menu links to use Next.js `Link` with prefetch and route preloading on hover/focus.
+  - Added dedicated section pages for `about`, `experience`, `services`, `case-studies`, and `contact`.
+  - Kept impactful minimal homepage and links hub; retained full `/showcase` and `/projects`.
+  - Added shared shell for section pages and shared SEO metadata helpers.
+  - Updated content navigation to point to dedicated page URLs and aligned project inquiry/case-study links to dedicated routes.
+- Validation:
+  - [x] `npm run validate:content`
+  - [x] `npm run validate:content -- src/content/site-content.example.json`
+  - [x] `npm run lint`
+  - [x] `npm run build`
+  - [ ] Manual UX pass for perceived navigation speed and page transitions
+- Notes/Risks:
+  - If remote JSON is used, it must include the new nav `href` conventions for consistent dedicated-page routing.
+
+## 2026-05-09 - Homepage restored with section-rich flow + JSON profile mode
+- Goal:
+  - Bring back full hero/journey-driven homepage depth and make freelancer/developer positioning configurable through JSON.
+- Files changed:
+  - `src/app/page.tsx`
+  - `src/types/content.ts`
+  - `src/content/validateSiteContent.ts`
+  - `scripts/validate-site-content.mjs`
+  - `src/content/site-content.json`
+  - `src/content/site-content.example.json`
+  - `docs/tracking/CHANGELOG.md`
+- What changed:
+  - Replaced the minimal-only homepage rendering with a rich homepage flow that includes hero and configurable sections.
+  - Added new `data.home` content model with:
+    - `profileMode` (`freelancer` or `developer`) for representation switching.
+    - `sectionOrder` for homepage section sequencing from JSON.
+    - `badge`, `headline`, `subheadline`, `highlightPills`, and `quickLinks` for editable homepage messaging.
+  - Wired homepage rendering to respect both section flags and `home.sectionOrder`, so visibility and order are config-driven.
+  - Updated content validators and example config to enforce and document the new `home` section schema.
+- Validation:
+  - [x] `npm run validate:content`
+  - [x] `npm run validate:content -- src/content/site-content.example.json`
+  - [x] `npm run lint`
+  - [x] `npm run build`
+  - [ ] Manual UX pass for final copy and section sequencing
+- Notes/Risks:
+  - Remote content payloads must include the new `data.home` object or fallback content will be used with warning.
+
+## 2026-05-09 - Enforced individual-developer positioning
+- Goal:
+  - Remove freelancer positioning and keep homepage identity as individual developer only.
+- Files changed:
+  - `src/types/content.ts`
+  - `src/content/validateSiteContent.ts`
+  - `scripts/validate-site-content.mjs`
+  - `src/content/site-content.json`
+  - `src/content/site-content.example.json`
+  - `src/app/page.tsx`
+  - `docs/tracking/CHANGELOG.md`
+- What changed:
+  - Removed `home.profileMode` from content schema and validation rules.
+  - Updated homepage content copy from freelancer wording to individual developer wording and removed remaining freelancer mention from home subheadline.
+  - Removed freelancer/developer mode switch logic from homepage page logic.
+- Validation:
+  - [x] `npm run validate:content`
+  - [x] `npm run lint`
+  - [x] `npm run build`
+- Notes/Risks:
+  - Remote JSON sources that still include `profileMode` will continue to work (extra fields are ignored), but it is no longer used.
+
+## 2026-05-09 - Configurable tech theme + modern font presets
+- Goal:
+  - Make visual theming configurable from JSON and shift typography/colors to a modern tech-forward look.
+- Files changed:
+  - `src/types/content.ts`
+  - `src/content/validateSiteContent.ts`
+  - `scripts/validate-site-content.mjs`
+  - `src/content/site-content.json`
+  - `src/content/site-content.example.json`
+  - `src/app/layout.tsx`
+  - `src/app/globals.css`
+- What changed:
+  - Added `data.theme` schema with configurable `fontPreset`, light/dark gradients, and light/dark color tokens.
+  - Applied theme tokens at runtime in root layout via CSS variables sourced from content JSON.
+  - Updated global styles to consume theme variables for typography and app backgrounds.
+  - Set default palette to a modern tech-oriented blue/cyan visual direction with dark navy depth.
+- Validation:
+  - [x] `npm run validate:content`
+  - [x] `npm run validate:content -- src/content/site-content.example.json`
+  - [x] `npm run lint`
+  - [x] `npm run build`
+- Notes/Risks:
+  - `fontPreset` uses local/system font stacks to remain build-safe without external font fetches.

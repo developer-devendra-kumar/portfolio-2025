@@ -82,7 +82,7 @@ const Contact: React.FC<ContactProps> = ({ content }) => {
   };
 
   return (
-    <section className="max-w-5xl mx-auto px-6 py-16" data-reveal-section>
+    <section className="max-w-6xl mx-auto px-6 py-16" data-reveal-section>
       <SectionTitle title={content.title} sectionId={content.sectionId} />
       <div
         className="rounded-2xl p-6 md:p-8 bg-white dark:bg-slate-800 shadow-sm will-change-transform"
@@ -96,7 +96,7 @@ const Contact: React.FC<ContactProps> = ({ content }) => {
           {content.intro}
         </p>
 
-        <div className="mt-6 grid sm:grid-cols-2 gap-4">
+        {/* <div className="mt-6 grid sm:grid-cols-2 gap-4">
           <div>
             <p className="text-sm text-secondary-text-light dark:text-secondary-text-dark">Email</p>
             <a
@@ -126,9 +126,9 @@ const Contact: React.FC<ContactProps> = ({ content }) => {
             <p className="text-sm text-secondary-text-light dark:text-secondary-text-dark">Response Time</p>
             <p className="text-base text-text-light dark:text-text-dark">{content.responseTime}</p>
           </div>
-        </div>
+        </div> */}
 
-        <div className="mt-6 flex flex-wrap gap-3">
+        {/* <div className="mt-6 flex flex-wrap gap-3">
           <a
             href={content.primaryCta.href}
             className="px-5 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold transition"
@@ -161,7 +161,7 @@ const Contact: React.FC<ContactProps> = ({ content }) => {
           >
             {content.secondaryCta.label}
           </a>
-        </div>
+        </div> */}
 
         <form onSubmit={submitInquiry} className="mt-8 grid md:grid-cols-2 gap-4">
           <input

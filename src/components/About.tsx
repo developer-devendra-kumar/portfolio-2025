@@ -100,7 +100,7 @@ const About: React.FC<AboutProps> = ({ content }) => {
   return (
     <section
       ref={sectionRef}
-      className="max-w-5xl mx-auto px-6 py-12"
+      className="max-w-6xl mx-auto px-6 py-12"
       id={content.sectionId}
     >
       <div className="about-title">

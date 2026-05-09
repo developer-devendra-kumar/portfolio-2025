@@ -7,6 +7,53 @@ export interface ContentEnvelope<T> {
 export interface NavigationItem {
   label: string;
   sectionId: string;
+  href?: string;
+}
+
+export type FontPreset = "space-grotesk" | "sora" | "outfit";
+
+export interface ThemeGradient {
+  from: string;
+  via: string;
+  to: string;
+}
+
+export interface ThemeColorSet {
+  background: string;
+  foreground: string;
+  cardBackground: string;
+  primary: string;
+  accent: string;
+  text: string;
+  secondaryText: string;
+}
+
+export interface ThemeMode {
+  gradient: ThemeGradient;
+  colors: ThemeColorSet;
+}
+
+export interface ThemeContent {
+  fontPreset: FontPreset;
+  light: ThemeMode;
+  dark: ThemeMode;
+}
+
+export interface HomeQuickLink {
+  label: string;
+  href: string;
+  hint: string;
+}
+
+export interface HomeContent {
+  sectionId: string;
+  badge: string;
+  headline: string;
+  subheadline: string;
+  highlightPills: string[];
+  sectionOrder: string[];
+  quickLinksTitle: string;
+  quickLinks: HomeQuickLink[];
 }
 
 export interface HeroMetric {
@@ -25,6 +72,7 @@ export interface HeroContent {
   greeting: string;
   name: string;
   role: string;
+  roleTitles?: string[];
   summary: string[];
   metrics: HeroMetric[];
   ctas: HeroCta[];
@@ -187,6 +235,33 @@ export interface FaqContent {
   items: FaqItem[];
 }
 
+export interface ProjectItem {
+  id: string;
+  title: string;
+  summary: string;
+  stack: string[];
+  client?: string;
+  domain?: string;
+  status?: string;
+  duration?: string;
+  outcome?: string;
+  imageUrl?: string;
+  caseStudyUrl?: string;
+  liveUrl?: string;
+}
+
+export interface ProjectsContent {
+  sectionId: string;
+  title: string;
+  intro: string;
+  previewCount: number;
+  showAllLabel: string;
+  allProjectsPath: string;
+  inquiryCtaLabel: string;
+  inquiryHref: string;
+  items: ProjectItem[];
+}
+
 export interface SeoContent {
   title: string;
   description: string;
@@ -196,13 +271,27 @@ export interface SeoContent {
 }
 
 export interface FeatureFlagsContent {
+  showHero: boolean;
+  showAbout: boolean;
+  showJourney: boolean;
+  showExperience: boolean;
+  showServices: boolean;
+  showCaseStudies: boolean;
+  showProjects: boolean;
+  showProcess: boolean;
   showTestimonials: boolean;
+  showCertifications: boolean;
+  showTraining: boolean;
+  showSocialLinks: boolean;
+  showContact: boolean;
   showFaq: boolean;
 }
 
 export interface SiteContentData {
   seo: SeoContent;
+  theme: ThemeContent;
   navigation: NavigationItem[];
+  home: HomeContent;
   hero: HeroContent;
   about: AboutContent;
   journey: JourneyContent;
@@ -216,6 +305,7 @@ export interface SiteContentData {
   contact: ContactContent;
   socialLinks: SocialLinksContent;
   faq: FaqContent;
+  projects: ProjectsContent;
   featureFlags: FeatureFlagsContent;
 }
 

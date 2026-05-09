@@ -21,6 +21,30 @@ function isArray(value) {
   return Array.isArray(value);
 }
 
+function isThemeColorSet(value) {
+  return (
+    isObject(value) &&
+    isString(value.background) &&
+    isString(value.foreground) &&
+    isString(value.cardBackground) &&
+    isString(value.primary) &&
+    isString(value.accent) &&
+    isString(value.text) &&
+    isString(value.secondaryText)
+  );
+}
+
+function isThemeMode(value) {
+  return (
+    isObject(value) &&
+    isObject(value.gradient) &&
+    isString(value.gradient.from) &&
+    isString(value.gradient.via) &&
+    isString(value.gradient.to) &&
+    isThemeColorSet(value.colors)
+  );
+}
+
 function validateContent(content) {
   const errors = [];
 
@@ -45,7 +69,9 @@ function validateContent(content) {
 
   const topKeys = [
     "seo",
+    "theme",
     "navigation",
+    "home",
     "hero",
     "about",
     "journey",
@@ -59,6 +85,7 @@ function validateContent(content) {
     "contact",
     "socialLinks",
     "faq",
+    "projects",
     "featureFlags",
   ];
 
@@ -75,6 +102,17 @@ function validateContent(content) {
   ) {
     errors.push("Invalid `data.seo`.");
   }
+
+  if (
+    !isObject(data.theme) ||
+    !isString(data.theme.fontPreset) ||
+    !["space-grotesk", "sora", "outfit"].includes(data.theme.fontPreset) ||
+    !isThemeMode(data.theme.light) ||
+    !isThemeMode(data.theme.dark)
+  ) {
+    errors.push("Invalid `data.theme`.");
+  }
+
   if (isObject(data.seo)) {
     if ("canonicalUrl" in data.seo && data.seo.canonicalUrl !== undefined && !isString(data.seo.canonicalUrl)) {
       errors.push("Invalid `data.seo.canonicalUrl`.");
@@ -93,18 +131,105 @@ function validateContent(content) {
       (item) =>
         isObject(item) &&
         isString(item.label) &&
-        isString(item.sectionId),
+        isString(item.sectionId) &&
+        (!("href" in item) || item.href === undefined || isString(item.href)),
     )
   ) {
     errors.push("Invalid `data.navigation`.");
   }
 
   if (
+    !isObject(data.home) ||
+    !isString(data.home.sectionId) ||
+    !isString(data.home.badge) ||
+    !isString(data.home.headline) ||
+    !isString(data.home.subheadline) ||
+    !isArray(data.home.highlightPills) ||
+    !data.home.highlightPills.every((item) => isString(item)) ||
+    !isArray(data.home.sectionOrder) ||
+    !data.home.sectionOrder.every((item) => isString(item)) ||
+    !isString(data.home.quickLinksTitle) ||
+    !isArray(data.home.quickLinks) ||
+    !data.home.quickLinks.every(
+      (item) =>
+        isObject(item) &&
+        isString(item.label) &&
+        isString(item.href) &&
+        isString(item.hint),
+    )
+  ) {
+    errors.push("Invalid `data.home`.");
+  }
+
+  if (
+    !isObject(data.hero) ||
+    !isString(data.hero.sectionId) ||
+    !isString(data.hero.role) ||
+    !isString(data.hero.name) ||
+    !isArray(data.hero.summary) ||
+    ("roleTitles" in data.hero &&
+      data.hero.roleTitles !== undefined &&
+      (!isArray(data.hero.roleTitles) ||
+        data.hero.roleTitles.length === 0 ||
+        !data.hero.roleTitles.every((item) => isString(item))))
+  ) {
+    errors.push("Invalid `data.hero`.");
+  }
+
+  if (
     !isObject(data.featureFlags) ||
+    !isBoolean(data.featureFlags.showHero) ||
+    !isBoolean(data.featureFlags.showAbout) ||
+    !isBoolean(data.featureFlags.showJourney) ||
+    !isBoolean(data.featureFlags.showExperience) ||
+    !isBoolean(data.featureFlags.showServices) ||
+    !isBoolean(data.featureFlags.showCaseStudies) ||
+    !isBoolean(data.featureFlags.showProjects) ||
+    !isBoolean(data.featureFlags.showProcess) ||
     !isBoolean(data.featureFlags.showTestimonials) ||
+    !isBoolean(data.featureFlags.showCertifications) ||
+    !isBoolean(data.featureFlags.showTraining) ||
+    !isBoolean(data.featureFlags.showSocialLinks) ||
+    !isBoolean(data.featureFlags.showContact) ||
     !isBoolean(data.featureFlags.showFaq)
   ) {
     errors.push("Invalid `data.featureFlags`.");
+  }
+
+  if (
+    !isObject(data.projects) ||
+    !isString(data.projects.sectionId) ||
+    !isString(data.projects.title) ||
+    !isString(data.projects.intro) ||
+    typeof data.projects.previewCount !== "number" ||
+    !isString(data.projects.showAllLabel) ||
+    !isString(data.projects.allProjectsPath) ||
+    !isString(data.projects.inquiryCtaLabel) ||
+    !isString(data.projects.inquiryHref) ||
+    !isArray(data.projects.items)
+  ) {
+    errors.push("Invalid `data.projects`.");
+  } else {
+    if (data.projects.previewCount < 1) {
+      errors.push("`data.projects.previewCount` must be at least 1.");
+    }
+    if (data.projects.items.length < 3) {
+      errors.push("`data.projects.items` must contain at least 3 projects.");
+    }
+
+    const hasInvalidItem = data.projects.items.some(
+      (project) =>
+        !isObject(project) ||
+        !isString(project.id) ||
+        !isString(project.title) ||
+        !isString(project.summary) ||
+        !isArray(project.stack) ||
+        !project.stack.every((tech) => isString(tech)),
+    );
+
+    if (hasInvalidItem) {
+      errors.push("Invalid project item in `data.projects.items`.");
+    }
   }
 
   if (

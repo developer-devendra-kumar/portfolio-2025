@@ -8,7 +8,7 @@ interface CertificatesProps {
 
 const Certificates: React.FC<CertificatesProps> = ({ content }) => {
   return (
-    <section className="max-w-5xl mx-auto px-6 py-16" data-reveal-section>
+    <section className="max-w-6xl mx-auto px-6 py-16" data-reveal-section>
       <SectionTitle title={content.title} sectionId={content.sectionId} />
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {content.items.map((certificate) => (

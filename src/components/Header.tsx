@@ -1,10 +1,9 @@
 'use client';
 
-import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import devLogoDark from "../assets/images/dev-logo-dark.svg";
-import devLogoLight from "../assets/images/dev-logo-light.svg";
 import type { NavigationItem } from "@/types/content";
 import useReducedMotion from "@/hooks/useReducedMotion";
 import { trackEvent } from "@/utils/analytics";
@@ -15,15 +14,18 @@ interface HeaderProps {
 
 const ballStyle = {
     light:
-        "bg-white w-[22px] h-[22px] absolute left-[2] top-[2] rounded-[50%] transition-transform",
-    dark: "bg-black w-[22px] h-[22px] absolute left-[2] top-[2] rounded-[50%] transition-transform translate-x-6",
+        "bg-white w-[22px] h-[22px] absolute left-[5%] top-[7%] rounded-[50%] transition-transform",
+    dark: "bg-black w-[22px] h-[22px] absolute left-[2%] top-[7%] rounded-[50%] transition-transform translate-x-6",
 };
 
-const headerStyle = "w-full sticky top-0 left-0 shadow-sm z-50";
+const headerStyle = "w-full sticky top-0 left-0 z-50 border-b border-slate-200/70 dark:border-slate-700/70 backdrop-blur-md";
 const mobileMenuStyle =
     "hidden z-99 rounded-lg border-2 w-screen h-screen fixed top-0 left-0";
+const navItemClass =
+    "text-sm md:text-[0.95rem] font-semibold tracking-[0.015em] text-text-light dark:text-text-dark hover:text-primary-light focus:text-primary-light transition-colors";
 
 const Header: React.FC<HeaderProps> = ({ navigation }) => {
+    const router = useRouter();
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const prefersReducedMotion = useReducedMotion();
@@ -122,26 +124,37 @@ const Header: React.FC<HeaderProps> = ({ navigation }) => {
 
     return (
         <header className={`${headerStyle} ${isDarkMode ? "app-bg-dark" : "app-bg-light"}`}>
-            <nav className="flex flex-wrap justify-between items-center px-4 py-2">
-                <a href="#home" aria-label="Go to home section">
-                    <Image
-                        id="logo"
-                        src={isDarkMode ? devLogoLight : devLogoDark}
-                        alt="Devendra Kumar Logo"
-                        width={50}
-                        height={50}
-                    />
-                </a>
+            <nav className="max-w-6xl mx-auto px-6 py-3 flex justify-between items-center gap-4">
+                <div className="flex items-center gap-4">
+                    <button
+                        className="flex md:hidden justify-center items-center rounded-lg border border-slate-300 dark:border-slate-600 shadow-sm w-10 h-10"
+                        onClick={toggleMenuMobile}
+                        aria-label="Toggle mobile menu"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            height="24px"
+                            className="size-6 text-text-light dark:text-text-dark"
+                            viewBox="0 -960 960 960"
+                            width="24px"
+                            fill="currentColor"
+                        >
+                            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+                        </svg>
+                    </button>
 
-                <ul className="md:flex flex-wrap justify-end items-center gap-4 hidden">
-                    {navigation.map((item) => (
-                        <MenuItem
-                            key={item.sectionId}
-                            text={item.label}
-                            linkId={item.sectionId}
-                        />
-                    ))}
-                </ul>
+                    <ul className="hidden md:flex flex-wrap items-center gap-6">
+                        {navigation.map((item) => (
+                            <MenuItem
+                                key={item.sectionId}
+                                text={item.label}
+                                linkId={item.sectionId}
+                                href={item.href}
+                                prefetchRoute={router.prefetch}
+                            />
+                        ))}
+                    </ul>
+                </div>
 
                 <div
                     ref={menuRef}
@@ -153,7 +166,9 @@ const Header: React.FC<HeaderProps> = ({ navigation }) => {
                                 key={`mobile-${item.sectionId}`}
                                 text={item.label}
                                 linkId={item.sectionId}
+                                href={item.href}
                                 onClick={closeMobileMenu}
+                                prefetchRoute={router.prefetch}
                             />
                         ))}
                         <li>
@@ -175,23 +190,6 @@ const Header: React.FC<HeaderProps> = ({ navigation }) => {
                         </li>
                     </ul>
                 </div>
-
-                <button
-                    className="flex flex-wrap justify-center items-center md:hidden border rounded-bl-xl rounded-br-xl shadow-sm -translate-y-4 w-30"
-                    onClick={toggleMenuMobile}
-                    aria-label="Toggle mobile menu"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        height="24px"
-                        className="size-9 text-text-light dark:text-text-dark"
-                        viewBox="0 -960 960 960"
-                        width="24px"
-                        fill="currentColor"
-                    >
-                        <path d="M480-360 280-560h400L480-360Z" />
-                    </svg>
-                </button>
 
                 <div>
                     <input
@@ -236,25 +234,56 @@ export default Header;
 interface MenuItemProps {
     text: string;
     linkId: string;
+    href?: string;
     onClick?: () => void;
+    prefetchRoute?: (href: string) => void;
 }
 
-const MenuItem: React.FC<MenuItemProps> = ({ text, linkId, onClick }) => {
+function isInternalRoute(href: string): boolean {
+    return href.startsWith("/") && !href.startsWith("//");
+}
+
+const MenuItem: React.FC<MenuItemProps> = ({
+    text,
+    linkId,
+    href,
+    onClick,
+    prefetchRoute,
+}) => {
+    const targetHref = href ?? `#${linkId}`;
+    const internalRoute = isInternalRoute(targetHref);
+
+    const onMenuItemClick = () => {
+        trackEvent("navigation_click", {
+            label: text,
+            section: linkId,
+            href: targetHref,
+        });
+        onClick?.();
+    };
+
     return (
         <li>
-            <a
-                href={`#${linkId}`}
-                className="text-xl font-semibold text-text-light dark:text-text-dark hover:text-primary-light focus:text-primary-light"
-                onClick={() => {
-                    trackEvent("navigation_click", {
-                        label: text,
-                        section: linkId,
-                    });
-                    onClick?.();
-                }}
-            >
-                {text}
-            </a>
+            {internalRoute ? (
+                <Link
+                    href={targetHref}
+                    prefetch
+                    className={navItemClass}
+                    onMouseEnter={() => prefetchRoute?.(targetHref)}
+                    onFocus={() => prefetchRoute?.(targetHref)}
+                    onClick={onMenuItemClick}
+                >
+                    {text}
+                </Link>
+            ) : (
+                <a
+                    href={targetHref}
+                    className={navItemClass}
+                    onClick={onMenuItemClick}
+                >
+                    {text}
+                </a>
+            )}
         </li>
     );
 };

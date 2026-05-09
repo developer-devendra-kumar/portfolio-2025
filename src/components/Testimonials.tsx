@@ -8,7 +8,7 @@ interface TestimonialsProps {
 
 const Testimonials: React.FC<TestimonialsProps> = ({ content }) => {
   return (
-    <section className="max-w-5xl mx-auto px-6 py-16" data-reveal-section>
+    <section className="max-w-6xl mx-auto px-6 py-16" data-reveal-section>
       <SectionTitle title={content.title} sectionId={content.sectionId} />
       <div className="grid md:grid-cols-2 gap-4">
         {content.items.map((testimonial, index) => (

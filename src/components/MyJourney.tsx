@@ -112,7 +112,7 @@ const MyJourney: React.FC<MyJourneyProps> = ({ content }) => {
   return (
     <section
       ref={sectionRef}
-      className="max-w-5xl mx-auto px-6 py-12"
+      className="max-w-6xl mx-auto px-6 py-12"
       id={content.sectionId}
     >
       <SectionTitle title={content.title} />

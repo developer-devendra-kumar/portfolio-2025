@@ -51,6 +51,11 @@
         "href": "/"
       },
       {
+        "label": "Links",
+        "sectionId": "links",
+        "href": "/links"
+      },
+      {
         "label": "About",
         "sectionId": "about",
         "href": "/about"
@@ -135,12 +140,12 @@
       "sectionId": "home",
       "greeting": "Hello, I am",
       "name": "Devendra Kumar",
-      "role": "Senior Software Engineer",
+      "role": "Senior software engineer",
       "roleTitles": [
-        "Senior Software Engineer",
-        "Full Stack Developer",
-        "MERN Developer",
-        "MEAN Developer"
+        "Senior software engineer",
+        "full stack developer",
+        "mern developer",
+        "mean developer"
       ],
       "summary": [
         "Senior Software Engineer with 7+ years of experience delivering enterprise-grade applications in finance, fitness, and event management.",
@@ -532,7 +537,7 @@
       "sectionId": "contact",
       "title": "Contact",
       "headline": "Let's build something reliable and scalable.",
-      "intro": "If you are looking for a senior software engineer for product delivery, architecture, or team acceleration, let's connect.",
+      "intro": "If you are looking for a frontend-focused full-stack engineer for product delivery, architecture, or team acceleration, let's connect.",
       "email": "devendra@example.com",
       "location": "India",
       "availability": "Open to contract and full-time opportunities.",
@@ -583,16 +588,16 @@
       "showAbout": true,
       "showJourney": true,
       "showExperience": true,
-      "showServices": false,
-      "showCaseStudies": false,
+      "showServices": true,
+      "showCaseStudies": true,
       "showProjects": true,
       "showProcess": true,
-      "showTestimonials": false,
+      "showTestimonials": true,
       "showCertifications": true,
       "showTraining": true,
-      "showSocialLinks": false,
+      "showSocialLinks": true,
       "showContact": true,
-      "showFaq": false
+      "showFaq": true
     },
     "projects": {
       "sectionId": "projects",
@@ -656,6 +661,7 @@
           "stack": [
             "React",
             "Node.js",
+            "Hibernate",
             "Express",
             "PostgreSQL",
             "AWS"

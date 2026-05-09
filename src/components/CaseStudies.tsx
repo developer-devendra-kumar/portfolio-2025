@@ -11,7 +11,7 @@ interface CaseStudiesProps {
 
 const CaseStudies: React.FC<CaseStudiesProps> = ({ content }) => {
   return (
-    <section className="max-w-5xl mx-auto px-6 py-16" data-reveal-section>
+    <section className="max-w-6xl mx-auto px-6 py-16" data-reveal-section>
       <SectionTitle title={content.title} sectionId={content.sectionId} />
       <div className="space-y-5">
         {content.items.map((study) => (
