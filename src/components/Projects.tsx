@@ -25,13 +25,20 @@ function ProjectCard({
   project,
   inquiryHref,
   inquiryCtaLabel,
+  compact,
 }: {
   project: ProjectItem;
   inquiryHref: string;
   inquiryCtaLabel: string;
+  compact: boolean;
 }) {
   const visibleStack = project.stack.slice(0, MAX_VISIBLE_STACK);
   const hiddenStackCount = Math.max(0, project.stack.length - visibleStack.length);
+  const allResponsibilities =
+    project.responsibilities?.map((item) => item.trim()).filter(Boolean) ?? [];
+  const maxResponsibilities = compact ? 2 : 4;
+  const visibleResponsibilities = allResponsibilities.slice(0, maxResponsibilities);
+  const hiddenResponsibilitiesCount = Math.max(0, allResponsibilities.length - visibleResponsibilities.length);
 
   return (
     <article
@@ -81,9 +88,33 @@ function ProjectCard({
           </p>
         )}
 
+        {hasValue(project.role) && (
+          <p className="mt-2 text-sm text-text-light dark:text-text-dark">
+            <strong>Role:</strong> {project.role}
+          </p>
+        )}
+
         <p className="mt-3 text-sm text-text-light dark:text-text-dark">
           {project.summary}
         </p>
+
+        {visibleResponsibilities.length > 0 && (
+          <div className="mt-3">
+            <p className="text-sm font-semibold text-text-light dark:text-text-dark">
+              Responsibilities
+            </p>
+            <ul className="mt-1 list-disc list-inside space-y-1 text-sm text-secondary-text-light dark:text-secondary-text-dark">
+              {visibleResponsibilities.map((responsibility) => (
+                <li key={`${project.id}-${responsibility}`}>{responsibility}</li>
+              ))}
+            </ul>
+            {hiddenResponsibilitiesCount > 0 && (
+              <p className="mt-1 text-xs text-secondary-text-light dark:text-secondary-text-dark">
+                +{hiddenResponsibilitiesCount} more responsibilities
+              </p>
+            )}
+          </div>
+        )}
 
         {hasValue(project.outcome) && (
           <p className="mt-3 text-sm text-secondary-text-light dark:text-secondary-text-dark">
@@ -195,6 +226,7 @@ const Projects: React.FC<ProjectsProps> = ({ content, mode = "preview" }) => {
             project={project}
             inquiryHref={inquiryHref}
             inquiryCtaLabel={content.inquiryCtaLabel}
+            compact={isPreview}
           />
         ))}
       </div>

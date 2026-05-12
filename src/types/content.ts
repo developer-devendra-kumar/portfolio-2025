@@ -238,7 +238,9 @@ export interface FaqContent {
 export interface ProjectItem {
   id: string;
   title: string;
+  role?: string;
   summary: string;
+  responsibilities?: string[];
   stack: string[];
   client?: string;
   domain?: string;

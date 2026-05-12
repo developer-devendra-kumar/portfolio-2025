@@ -189,8 +189,12 @@
       ],
       "skills": [
         {
-          "title": "Frontend",
-          "description": "React.js, Angular 2+, TypeScript, Next.js, Redux, TanStack Query, Tailwind, MUI"
+          "title": "Frontend Frameworks",
+          "description": "React.js, Next.js, Angular 2+, TypeScript, Web Components, Redux, React Router, TanStack Query, Formik, Yup, Storybook, Socket.io"
+        },
+        {
+          "title": "Style Libraries",
+          "description": "Tailwind CSS, Styled Components, Bootstrap 5, Angular Material 7+, MUI, SCSS, CSS3"
         },
         {
           "title": "Backend",
@@ -198,19 +202,19 @@
         },
         {
           "title": "Databases",
-          "description": "MongoDB, MySQL, MariaDB"
+          "description": "MongoDB, MySQL, MariaDB, IBM DB2"
         },
         {
-          "title": "Cloud & Tools",
-          "description": "AWS (S3, CloudFront, SQS, SES), Docker, Linux, NGINX, Git, Vite, Webpack"
+          "title": "Cloud, DevOps & Tools",
+          "description": "AWS (S3, CloudFront, SQS, SES, CloudWatch), Docker, Linux, NGINX, Git, Vite, Webpack, Webpack Bundle Analyzer, Rollup Plugin Visualizer, JIRA, Confluence, Virtual Machines"
         },
         {
           "title": "Leadership & Process",
           "description": "Architecture Design, Team Leadership, Mentorship, Code Reviews, Agile/Scrum"
         },
         {
-          "title": "Other",
-          "description": "Payment Integrations, Analytics (GA/GTM), Google Maps, Recharts, D3, Multi-language Apps"
+          "title": "Analytics & Integrations",
+          "description": "Google Analytics, GTM, WebEngage, Facebook Pixel, Google Maps, Payment Gateway Integration, D3/Google Charts, Recharts, Multi-language Apps"
         }
       ]
     },
@@ -601,8 +605,8 @@
     },
     "projects": {
       "sectionId": "projects",
-      "title": "Featured Projects",
-      "intro": "A selection of product builds where I handled architecture, delivery, and measurable outcomes.",
+      "title": "Project Portfolio",
+      "intro": "Selected projects delivered across Gateway Software Solutions, OakNorth Global, and HDOR Events with clear ownership from build to maintenance.",
       "previewCount": 3,
       "showAllLabel": "Show All Projects",
       "allProjectsPath": "/projects",
@@ -610,65 +614,453 @@
       "inquiryHref": "/contact",
       "items": [
         {
-          "id": "fintech-loan-origination",
-          "title": "Loan Origination Workflow Platform",
-          "client": "Confidential Fintech Client",
-          "domain": "Financial Services",
-          "status": "Production",
-          "duration": "8 months",
-          "summary": "Built a modular underwriting and approval platform with role-based workflows and deep API integrations.",
-          "outcome": "Reduced manual workflow effort and accelerated release cycles for risk teams.",
-          "stack": [
-            "React",
-            "Node.js",
-            "Express",
-            "MySQL",
-            "REST APIs"
-          ],
-          "imageUrl": "https://images.pexels.com/photos/6693656/pexels-photo-6693656.jpeg?auto=compress&cs=tinysrgb&w=1200",
-          "caseStudyUrl": "/case-studies",
-          "liveUrl": ""
-        },
-        {
-          "id": "event-ops-control-center",
-          "title": "Event Operations Control Center",
-          "client": "HDOR Events",
+          "id": "hdor-multi-portal-ecosystem",
+          "title": "HDOR App Multi-Portal Ecosystem",
+          "role": "Frontend Lead (React Developer)",
+          "client": "HDOR Events Pvt. Ltd. (2023 - Present)",
           "domain": "Event Management",
           "status": "Live",
-          "duration": "6 months",
-          "summary": "Developed a real-time command dashboard for event teams to coordinate schedules, staffing, and on-ground logistics.",
-          "outcome": "Improved response time for operational blockers and increased delivery confidence.",
-          "stack": [
-            "React",
-            "Angular",
-            "Node.js",
-            "Socket.io",
-            "MySQL"
+          "duration": "2023 - Present",
+          "summary": "Designed and built User, Registration, Activity, and Authentication portals from scratch for large-scale event journeys.",
+          "responsibilities": [
+            "Built User portal modules for dashboards, reports, profiles, coupons, referrals, and downloadable certificates/banners.",
+            "Implemented complete Registration flow including addresses, orders, and payment gateway integration.",
+            "Developed Activity portal for run, ride, and steps tracking with detailed infographics and summaries.",
+            "Designed secure Authentication workflows and reusable frontend architecture for scalability."
           ],
-          "imageUrl": "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200",
-          "caseStudyUrl": "/case-studies",
-          "liveUrl": ""
+          "outcome": "Unified multiple event journeys into a scalable platform used across virtual and physical events.",
+          "stack": [
+            "React.js",
+            "TypeScript",
+            "Node.js",
+            "Payment Gateway",
+            "Analytics"
+          ]
         },
         {
-          "id": "multi-tenant-admin-suite",
-          "title": "Multi-Tenant SaaS Admin Suite",
-          "client": "B2B Product Team",
-          "domain": "SaaS",
-          "status": "Production",
-          "duration": "5 months",
-          "summary": "Implemented a configurable admin suite with tenant-level access control, audit logs, and analytics-ready data flows.",
-          "outcome": "Enabled faster onboarding for new tenants and improved operational transparency.",
-          "stack": [
-            "React",
-            "Node.js",
-            "Hibernate",
-            "Express",
-            "PostgreSQL",
-            "AWS"
+          "id": "hdor-admin-portal",
+          "title": "HDOR Admin Portal",
+          "role": "Frontend Lead (React Developer)",
+          "client": "HDOR Events Pvt. Ltd. (2023 - Present)",
+          "domain": "Event Operations",
+          "status": "Live",
+          "duration": "2023 - Present",
+          "summary": "Built admin operations platform from scratch to manage events, users, masters, and moderation workflows.",
+          "responsibilities": [
+            "Built admin portal architecture and key flows for event and user management.",
+            "Implemented CRUD modules for Pincode, Country, State, and City master data.",
+            "Developed user operations features including profile updates, event details, activity logs, and certificate downloads.",
+            "Added moderation workflows for validating activity authenticity and consistency."
           ],
-          "imageUrl": "https://images.pexels.com/photos/3184419/pexels-photo-3184419.jpeg?auto=compress&cs=tinysrgb&w=1200",
-          "caseStudyUrl": "/case-studies",
-          "liveUrl": ""
+          "outcome": "Reduced manual operations and improved governance for high-volume event execution.",
+          "stack": [
+            "React.js",
+            "TypeScript",
+            "Node.js",
+            "REST APIs"
+          ]
+        },
+        {
+          "id": "hdor-organiser-portal",
+          "title": "HDOR Organiser Portal",
+          "role": "Frontend Lead (React Developer)",
+          "client": "HDOR Events Pvt. Ltd. (2023 - Present)",
+          "domain": "Event Operations",
+          "status": "Live",
+          "duration": "2023 - Present",
+          "summary": "Developed organiser-focused portal from scratch with role-based workflows and revenue-aware event operations.",
+          "responsibilities": [
+            "Built organiser request and approval flows with role-based access control.",
+            "Implemented modules for event creation, discounts, ticketing, participant operations, and revenue tracking.",
+            "Designed scalable frontend architecture and shared patterns across apps."
+          ],
+          "outcome": "Improved organiser efficiency and standardized operational flow across event programs.",
+          "stack": [
+            "React.js",
+            "TypeScript",
+            "RBAC",
+            "REST APIs"
+          ]
+        },
+        {
+          "id": "app-header-web-component",
+          "title": "Common App Header Web Component",
+          "role": "React Developer",
+          "client": "HDOR Events Pvt. Ltd.",
+          "domain": "Frontend Platform",
+          "status": "Production",
+          "duration": "2024",
+          "summary": "Built a reusable header as a web component for consistent navigation across multiple web apps.",
+          "responsibilities": [
+            "Developed reusable header component in React.js and exported it as a web component.",
+            "Configured behavior dynamically using JSON config, user roles, and tokens.",
+            "Enabled cross-application reuse with minimal integration effort."
+          ],
+          "outcome": "Standardized navigation UX and reduced duplicate implementation across apps.",
+          "stack": [
+            "React.js",
+            "Web Components",
+            "JavaScript",
+            "JSON Config"
+          ]
+        },
+        {
+          "id": "ads-sdk",
+          "title": "Reusable Ads SDK",
+          "role": "JavaScript Developer",
+          "client": "HDOR Events Pvt. Ltd.",
+          "domain": "AdTech",
+          "status": "Production",
+          "duration": "2024",
+          "summary": "Created a lightweight ads SDK packaged for plug-and-play integration across portal apps.",
+          "responsibilities": [
+            "Built SDK using JavaScript, HTML, and CSS for dynamic ad rendering.",
+            "Added JSON-based configuration and GTM tracking compatibility.",
+            "Packaged as independent web component for seamless integration."
+          ],
+          "outcome": "Enabled faster ad rollout and centralized tracking across multiple products.",
+          "stack": [
+            "JavaScript",
+            "HTML",
+            "CSS",
+            "Google Tag Manager",
+            "Web Components"
+          ]
+        },
+        {
+          "id": "hdor-celebration-video",
+          "title": "HDOR Celebration Video Generator",
+          "role": "Node.js Developer",
+          "client": "HDOR Events Pvt. Ltd.",
+          "domain": "Automation",
+          "status": "Production",
+          "duration": "2024",
+          "summary": "Built personalized participant celebration video generation and delivery workflow.",
+          "responsibilities": [
+            "Developed Node.js services to fetch participant data and build personalized stats payloads.",
+            "Used React Remotion templates for automated video rendering.",
+            "Automated participant communication by emailing video links after generation."
+          ],
+          "outcome": "Increased participant engagement through automated personalized media delivery.",
+          "stack": [
+            "Node.js",
+            "React Remotion",
+            "Email Automation",
+            "Template Rendering"
+          ]
+        },
+        {
+          "id": "npa-registration-admin",
+          "title": "NPA Registration Portal and Admin",
+          "role": "Angular Developer",
+          "client": "HDOR Events Pvt. Ltd.",
+          "domain": "Event Registration",
+          "status": "Maintained",
+          "duration": "2024 - Present",
+          "summary": "Built and maintained registration and admin modules for NPA event workflows.",
+          "responsibilities": [
+            "Built and enhanced participant registration flows using Angular 2+.",
+            "Developed admin dashboard modules for user management and event statistics.",
+            "Maintained production workflows and delivered iterative feature updates."
+          ],
+          "outcome": "Improved reliability and control of NPA event onboarding and operations.",
+          "stack": [
+            "Angular 2+",
+            "TypeScript",
+            "Dashboards",
+            "Admin Workflows"
+          ]
+        },
+        {
+          "id": "procam-registration-admin-v2",
+          "title": "Procam Registration Portal and Admin (v2)",
+          "role": "Frontend Lead (Angular Developer)",
+          "client": "HDOR Events Pvt. Ltd.",
+          "domain": "Sports Events",
+          "status": "Live",
+          "duration": "2024 - Present",
+          "summary": "Led build and enhancement of Procam registration and admin systems for large-scale physical events.",
+          "responsibilities": [
+            "Built and maintained participant registration and admin modules in Angular 2+.",
+            "Implemented user management, dashboards, and event statistics workflows.",
+            "Led frontend architecture decisions with focus on performance and scalability."
+          ],
+          "outcome": "Supported large event registrations with stable and scalable frontend flows.",
+          "stack": [
+            "Angular 2+",
+            "TypeScript",
+            "Angular Material",
+            "Performance Optimization"
+          ]
+        },
+        {
+          "id": "cc-portal-v2",
+          "title": "CC Portal v2",
+          "role": "Frontend Lead (Angular Developer)",
+          "client": "HDOR Events Pvt. Ltd.",
+          "domain": "Internal Platform",
+          "status": "Active",
+          "duration": "2024 - Present",
+          "summary": "Developed CC Portal v2 with modular frontend architecture and ongoing enhancements.",
+          "responsibilities": [
+            "Designed modular Angular architecture for versioned feature delivery.",
+            "Owned continuous feature enhancements and maintenance across releases.",
+            "Maintained architecture consistency and development standards."
+          ],
+          "outcome": "Delivered a maintainable base for faster iteration and lower regression risk.",
+          "stack": [
+            "Angular",
+            "TypeScript",
+            "Modular Architecture",
+            "Maintenance"
+          ]
+        },
+        {
+          "id": "vendor-portal",
+          "title": "Vendor Portal",
+          "role": "Frontend Lead (Angular Developer)",
+          "client": "HDOR Events Pvt. Ltd.",
+          "domain": "Partner Operations",
+          "status": "Live",
+          "duration": "2024 - Present",
+          "summary": "Built vendor operations portal from scratch to streamline partner workflows and tracking.",
+          "responsibilities": [
+            "Designed and developed vendor modules for event-related tasks and data tracking.",
+            "Owned feature development, enhancements, and lifecycle maintenance.",
+            "Ensured architecture alignment and shared frontend best practices."
+          ],
+          "outcome": "Improved visibility and operational consistency for vendor-side event management.",
+          "stack": [
+            "Angular",
+            "TypeScript",
+            "Dashboards",
+            "Workflow Management"
+          ]
+        },
+        {
+          "id": "elevate",
+          "title": "Elevate",
+          "role": "React Developer",
+          "client": "OakNorth Global Private Limited (2021 - 2023)",
+          "domain": "Banking",
+          "status": "Discontinued",
+          "duration": "2021 - 2023",
+          "summary": "Built core frontend modules from scratch for account operations in a banking product.",
+          "responsibilities": [
+            "Developed user-facing frontend using React.js in an agile ticket-driven environment.",
+            "Built account management modules including add money, move money, and reinvestment flows.",
+            "Collaborated across sprint cycles for modular, incremental releases."
+          ],
+          "outcome": "Delivered core functional modules before project closure due to management decisions.",
+          "stack": [
+            "React.js",
+            "JavaScript",
+            "REST APIs",
+            "Agile"
+          ]
+        },
+        {
+          "id": "collateral-search",
+          "title": "Collateral Search",
+          "role": "React Developer, Node.js Developer",
+          "client": "OakNorth Global Private Limited",
+          "domain": "Banking",
+          "status": "Live",
+          "duration": "2021 - 2023",
+          "summary": "Built collateral discovery system with React, Node.js, and Google Maps for geospatial loan collateral search.",
+          "responsibilities": [
+            "Developed and maintained React.js frontend with interactive maps and data tables.",
+            "Built Node.js backend APIs to support real-time collateral search workflows.",
+            "Integrated Google Geo APIs and radius-based filters for geolocation-driven exploration."
+          ],
+          "outcome": "Improved collateral visibility and faster decision support for banking operations.",
+          "stack": [
+            "React.js",
+            "Node.js",
+            "Express.js",
+            "Google Maps API",
+            "MySQL"
+          ]
+        },
+        {
+          "id": "business-portal-suite",
+          "title": "Business Portal Suite",
+          "role": "Angular Developer, Node.js Developer",
+          "client": "OakNorth Global Private Limited",
+          "domain": "Banking Operations",
+          "status": "Production",
+          "duration": "2021 - 2023",
+          "summary": "Designed and maintained enterprise Angular + Node.js applications for communication, automation, and controlled execution flows.",
+          "responsibilities": [
+            "Built Rate Change Communication flow with dynamic templates, preview, approvals, and real-time progress tracking.",
+            "Developed Rate Change Automation with validation, approval, execution, and rollback using Socket.io updates.",
+            "Implemented HubSpot to Mambu Email Upload with CSV + HTML templates and approval-to-execution workflows."
+          ],
+          "outcome": "Automated high-volume operational workflows while improving control and traceability.",
+          "stack": [
+            "Angular",
+            "Node.js",
+            "Express.js",
+            "Socket.io",
+            "MySQL"
+          ]
+        },
+        {
+          "id": "retail-deposit-journey",
+          "title": "Retail Deposit Journey",
+          "role": "React Developer",
+          "client": "OakNorth Global Private Limited",
+          "domain": "Banking",
+          "status": "Production",
+          "duration": "2021 - 2023",
+          "summary": "Contributed to feature enhancements and maintenance of a customer-facing banking portal built in React.",
+          "responsibilities": [
+            "Implemented and maintained customer onboarding and investment/reinvestment features.",
+            "Delivered iterative enhancements through agile, ticket-driven development cycles.",
+            "Collaborated with product and engineering teams to ensure release quality."
+          ],
+          "outcome": "Improved customer account journey consistency and release velocity.",
+          "stack": [
+            "React.js",
+            "JavaScript",
+            "REST APIs",
+            "Agile"
+          ]
+        },
+        {
+          "id": "hdor-100-days-running-admin",
+          "title": "HDOR - 100 Days of Running and Admin",
+          "role": "Angular Developer",
+          "client": "Gateway Software Solutions Pvt. Ltd. (2018 - 2021)",
+          "domain": "Fitness Events",
+          "status": "Production",
+          "duration": "2018 - 2021",
+          "summary": "Built flagship HDOR participant platform and admin portal from scratch for one of India's largest multi-day fitness challenges.",
+          "responsibilities": [
+            "Developed frontend from scratch in Angular with payment gateway, multi-language support, and Google Charts.",
+            "Built admin portal for user management, event stats, reporting, moderation, and certificate downloads.",
+            "Delivered features supporting large-scale participation and event operations."
+          ],
+          "outcome": "Successfully supported high-scale challenge operations with global participants.",
+          "stack": [
+            "Angular",
+            "TypeScript",
+            "Google Charts",
+            "Payment Gateway",
+            "Multi-language"
+          ]
+        },
+        {
+          "id": "tdh-tour-de-100-admin",
+          "title": "TDH - Tour De 100 and Admin",
+          "role": "Angular Developer",
+          "client": "Gateway Software Solutions Pvt. Ltd.",
+          "domain": "Cycling Events",
+          "status": "Production",
+          "duration": "2018 - 2021",
+          "summary": "Built frontend and admin ecosystem for a global 5-stage cycling challenge platform.",
+          "responsibilities": [
+            "Developed application independently in Angular with charts, payment integration, and multilingual support.",
+            "Implemented participant leaderboard and points-focused challenge experience.",
+            "Built admin dashboard for participant operations, event updates, and reporting."
+          ],
+          "outcome": "Enabled smooth delivery of multi-stage challenge experience and administrative control.",
+          "stack": [
+            "Angular",
+            "TypeScript",
+            "Google Charts",
+            "Payment Gateway",
+            "Multi-language"
+          ]
+        },
+        {
+          "id": "runners-club-admin",
+          "title": "Runners Club and Admin",
+          "role": "Angular Developer",
+          "client": "Gateway Software Solutions Pvt. Ltd.",
+          "domain": "Fitness Events",
+          "status": "Production",
+          "duration": "2018 - 2021",
+          "summary": "Built a localized HDOR replica for Romanian clients with map-enabled event flows and themed UX.",
+          "responsibilities": [
+            "Developed Angular frontend with Google Maps, multi-language support, and custom theming.",
+            "Built admin dashboard for user administration and reporting.",
+            "Delivered client-specific localization and platform behavior."
+          ],
+          "outcome": "Launched localized event product aligned to regional user expectations.",
+          "stack": [
+            "Angular",
+            "Google Maps",
+            "TypeScript",
+            "Multi-language"
+          ]
+        },
+        {
+          "id": "neb-sports-admin",
+          "title": "NEB Sports and Admin",
+          "role": "Angular Developer",
+          "client": "Gateway Software Solutions Pvt. Ltd.",
+          "domain": "Sports Events",
+          "status": "Production",
+          "duration": "2018 - 2021",
+          "summary": "Built HDOR-like event platform and admin tools for participant operations and reporting.",
+          "responsibilities": [
+            "Designed and developed event app modules with stats, multilingual support, and theme customization.",
+            "Built admin portal for dashboards, participant updates, and reporting operations.",
+            "Maintained consistent architecture patterns across event products."
+          ],
+          "outcome": "Improved operational efficiency for sports event administration and tracking.",
+          "stack": [
+            "Angular",
+            "TypeScript",
+            "Dashboards",
+            "Multi-language"
+          ]
+        },
+        {
+          "id": "procam-registration-admin-v1",
+          "title": "Procam Registration and Admin (v1)",
+          "role": "Angular Developer",
+          "client": "Gateway Software Solutions Pvt. Ltd.",
+          "domain": "Physical Events",
+          "status": "Production",
+          "duration": "2018 - 2021",
+          "summary": "Built registration and admin systems for Procam physical event management workflows.",
+          "responsibilities": [
+            "Developed registration platform workflows in Angular 2+ for participant onboarding.",
+            "Built admin modules for dashboards, user management, and event statistics.",
+            "Streamlined registration and operations for large-scale physical events."
+          ],
+          "outcome": "Stabilized registration and event administration for high-volume event programs.",
+          "stack": [
+            "Angular 2+",
+            "TypeScript",
+            "Angular Material",
+            "Dashboards"
+          ]
+        },
+        {
+          "id": "e-compliance-suite",
+          "title": "E-Compliance Suite (LCM-FCM, DMS, Phase and Event Scheduler)",
+          "role": "Java Developer",
+          "client": "Gateway Software Solutions Pvt. Ltd.",
+          "domain": "Compliance",
+          "status": "Production",
+          "duration": "2018 - 2021",
+          "summary": "Maintained and enhanced Java-based compliance applications used for labor, finance, document, and schedule management.",
+          "responsibilities": [
+            "Enhanced LCM-FCM modules for labor and finance compliance administration.",
+            "Improved DMS document upload and digital tracking workflows.",
+            "Maintained and enhanced phase and event scheduling flows for internal and external use."
+          ],
+          "outcome": "Improved reliability and usability of core compliance operations.",
+          "stack": [
+            "Java",
+            "Spring",
+            "Hibernate",
+            "MySQL",
+            "Apache Tomcat"
+          ]
         }
       ]
     }

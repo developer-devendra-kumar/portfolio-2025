@@ -231,7 +231,14 @@ export function getSiteContentValidationErrors(value: unknown): string[] {
         !isString(project.title) ||
         !isString(project.summary) ||
         !isArray(project.stack) ||
-        !project.stack.every((item) => isString(item)),
+        !project.stack.every((item) => isString(item)) ||
+        (("role" in project) &&
+          project.role !== undefined &&
+          !isString(project.role)) ||
+        (("responsibilities" in project) &&
+          project.responsibilities !== undefined &&
+          (!isArray(project.responsibilities) ||
+            !project.responsibilities.every((item) => isString(item)))),
     );
 
     if (invalidProject) {

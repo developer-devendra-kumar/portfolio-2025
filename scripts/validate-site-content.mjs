@@ -224,7 +224,14 @@ function validateContent(content) {
         !isString(project.title) ||
         !isString(project.summary) ||
         !isArray(project.stack) ||
-        !project.stack.every((tech) => isString(tech)),
+        !project.stack.every((tech) => isString(tech)) ||
+        (("role" in project) &&
+          project.role !== undefined &&
+          !isString(project.role)) ||
+        (("responsibilities" in project) &&
+          project.responsibilities !== undefined &&
+          (!isArray(project.responsibilities) ||
+            !project.responsibilities.every((item) => isString(item)))),
     );
 
     if (hasInvalidItem) {
